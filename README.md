@@ -1,1 +1,1 @@
-# COMP221-AlgoRythms
+# COMP221-AlgoRhythms
