@@ -68,11 +68,16 @@ public class ProjectRun {
     }
 
 
-    public void assignPercentages(Song song) {
-        Integer totalLineDistr;
+    public void assignPercentages(Song song, Integer total) {
+        Integer percentage = 0;
         for (Member member : song.memberTimes.keySet()) {
+            percentage = song.memberTimes.get(member).get(0) / total * 100;
 
-            Integer percent = song.memberTimes.get(member).get(0);
+            song.memberTimes.get(member).set(1, percentage);
+            // set percentage in Song object
+            member.songTimes.get(song).set(1, percentage);
+            // set percentage in Member object
         }
     }
+
 }
