@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class ProjectRun {
@@ -8,7 +9,7 @@ public class ProjectRun {
 
     }
 
-    public void processSoup(String txtFile) throws IOException {
+    public void processFile(String txtFile) throws IOException {
         /* READ UNTIL "."
             Read all until ","
             1st time - groupName
@@ -31,5 +32,18 @@ public class ProjectRun {
 //
 ////        }
 
+//        assignPercentages();
+
+
+
+    }
+
+
+    public void assignPercentages(Song song) {
+        Integer totalLineDistr;
+        for (Member member : song.memberTimes.keySet()) {
+
+            Integer percent = song.memberTimes.get(member).get(0);
+        }
     }
 }
