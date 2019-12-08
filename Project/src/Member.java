@@ -4,7 +4,11 @@ import java.util.LinkedList;
 public class Member {
     String name;
     String position;
-    HashMap<Song, LinkedList> songTimes = new HashMap<>();    // Song: [seconds, percentage]
+    HashMap<Song, LinkedList<Integer>> songTimes = new HashMap<>();    // Song: [seconds, percentage]
+
+    public Member(String nme){
+        name = nme;
+    }
 
     public String getName() {
         return name;
@@ -22,11 +26,11 @@ public class Member {
         this.position = position;
     }
 
-    public HashMap<Song, LinkedList> getSongTimes() {
+    public HashMap<Song, LinkedList<Integer>> getSongTimes() {
         return songTimes;
     }
 
-    public void setSongTimes(HashMap<Song, LinkedList> songTimes) {
+    public void setSongTimes(HashMap<Song, LinkedList<Integer>> songTimes) {
         this.songTimes = songTimes;
     }
 }

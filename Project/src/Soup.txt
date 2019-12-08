@@ -1,2 +1,2 @@
-BTS, Run, 236, Jungkook:56, Jimin:38, RM:24, J-Hope:23, Jin:21, V:20, Suga:12.
+BTS, Run, Jungkook:56, Jimin:38, RM:24, J-Hope:23, Jin:21, V:20, Suga:12.
 BTS, Hold Me Tight, 267, Jimin:46, Jungkook:44, J-Hope:34, V:34, RM:28, Suga:27, Jin:22.
