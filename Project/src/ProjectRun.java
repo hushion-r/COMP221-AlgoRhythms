@@ -1,3 +1,4 @@
+import javax.xml.transform.stream.StreamSource;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -7,11 +8,47 @@ import java.util.stream.Stream;
 public class ProjectRun {
     public static void main(String args []) {
         System.out.println("we have not failed yet");
+        //processFile();
 
     }
 
-    public static void processFile(InputStream txtFile) throws IOException {
-        /* READ UNTIL "."
+    public static void processFile(InputStream txtFile) {
+
+        Scanner scan = new Scanner(txtFile);
+        while(scan.hasNext()){
+            boolean isNewGroup = false;
+
+            String groupName = scan.next();                     //If we haven't encountered the group, make a new object and add the members
+            if(!Group.sampleGroups.containsKey(groupName)){
+                isNewGroup = true;
+               Group.addGroup(groupName.substring(0,1), groupName);
+               System.out.println(groupName);                              //A Test
+            }
+            else{
+                //newGroup = Group.sampleGroups.get(groupName);           //else get the group object from someplace else
+            }
+
+            String songName = scan.next();                      //makes new song object
+            Song newSong = new Song(songName, newGroup);
+
+            String[] data = scan.next().split(":");       //Get member and the total song time;
+            System.out.print(data[0] + " " + data[1]);
+
+            if(isNewGroup){
+                newGroup.addMember(data[0]);
+            }
+
+            int index = newGroup.findMember(data[0]);       //might need to be refined, currently does a brute force search\
+
+            LinkedList<Integer> numbers = new LinkedList<>();
+            numbers.add(Integer.valueOf(data[1]));
+
+            newGroup.getMembers().get(index).getSongTimes().put(newSong, numbers);
+
+        }
+
+
+                /* READ UNTIL "."
             Read all until ","
             1st time - groupName
                 does group exist already?
@@ -34,36 +71,6 @@ public class ProjectRun {
 ////        }
 
 //        assignPercentages();
-
-        Scanner scan = new Scanner(txtFile).useDelimiter("\\s*, \\s* | \\s+");
-        while(scan.hasNext()){
-            boolean isNewGroup = false;
-            Group newGroup;
-
-            String groupName = scan.next();                     //If we haven't encountered group, make a new object and add the members
-            if(!Group.sampleGroups.contains(groupName)){
-                isNewGroup = true;
-                newGroup = new Group(groupName);
-                Group.sampleGroups.add(newGroup);
-            }
-            else{
-                newGroup = Group.sampleGroups.first();           //else get the group object from someplace else
-            }
-
-            String songName = scan.next();                      //makes new song object
-            Song newSong = new Song(songName, newGroup);
-
-            String[] data = scan.next().split(":");     //Get member and the total song time;
-
-            if(isNewGroup){
-                newGroup.addMember(data[0]);
-            }
-
-            int index = newGroup.findMember(data[0]);       //might need to be refined, currently does a brute force search
-
-//            newGroup.getMembers().get(index).getSongTimes().put(newSong, );
-
-        }
 
     }
 
