@@ -37,7 +37,7 @@ public class Group {
         boolean found = false;
         int i = 0;
         while(!found){
-            if(getMembers().get(i).getName().equals(name)){
+            if(getMembers().get(i).getMemberName().equals(name)){
                 found = true;
                 return i;
             }

@@ -2,20 +2,20 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 public class Member {
-    String name;
+    String memberName;
     String position;
     HashMap<Song, LinkedList<Integer>> songTimes = new HashMap<>();    // Song: [seconds, percentage]
 
     public Member(String nme){
-        name = nme;
+        memberName = nme;
     }
 
-    public String getName() {
-        return name;
+    public String getMemberName() {
+        return memberName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMemberName(String memberName) {
+        this.memberName = memberName;
     }
 
     public String getPosition() {
