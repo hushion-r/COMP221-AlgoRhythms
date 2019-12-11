@@ -1,10 +1,9 @@
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Member {
     String memberName;
     String position;
-    HashMap<Song, LinkedList<Integer>> songTimes = new HashMap<>();    // Song: [seconds, percentage]
+    HashMap<Song, ArrayList<Integer>> songTimes = new HashMap<>();    // Song: [seconds, percentage]
 
     public Member(String nme){
         memberName = nme;
@@ -26,11 +25,11 @@ public class Member {
         this.position = position;
     }
 
-    public HashMap<Song, LinkedList<Integer>> getSongTimes() {
+    public HashMap<Song, ArrayList<Integer>> getSongTimes() {
         return songTimes;
     }
 
-    public void setSongTimes(HashMap<Song, LinkedList<Integer>> songTimes) {
+    public void setSongTimes(HashMap<Song, ArrayList<Integer>> songTimes) {
         this.songTimes = songTimes;
     }
 }
