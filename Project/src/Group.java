@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Group {
     String groupName;
-    List<Member> members = new ArrayList<>();
+    ArrayList<Member> members = new ArrayList<>();
 
     public Group(String group){
 
@@ -22,9 +22,9 @@ public class Group {
         return members;
     }
 
-    public void setMembers(List<Member> members) {
-        this.members = members;
-    }
+//    public void setMembers(List<Member> members) {
+//        this.members = members;
+//    }
 
     public static HashMap<String, LinkedList<Group>> sampleGroups  = new HashMap();
 

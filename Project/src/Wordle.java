@@ -2,7 +2,9 @@ import comp124graphics.GraphicsGroup;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Random;
 
 /**
@@ -14,18 +16,29 @@ public class Wordle extends GraphicsGroup {
     private WordleGLabel[] labels;
     private Random rgen;
 
-    public Wordle(Member[] members, Song song, Color color, double x, double y) {
+    public Wordle(ArrayList<Member> members, Song song, Color colorR, Color colorV, double x, double y) {
         super(x,y);
         rgen = new Random();
 
-        int maxIndex = Math.min(members.length - 1, MAX_WORDS - 1);
+        //
+        for (Member m : members) {
+            System.out.println(m.memberName);
+        }
+        //
+
+        int maxIndex = Math.min(members.size() - 1, MAX_WORDS - 1);
         labels = new WordleGLabel[maxIndex];
-        double lowScore = members[maxIndex].songTimes.get(song).get(1);
-        double highScore = members[0].songTimes.get(song).get(1);
+        double lowScore = members.get(maxIndex).songTimes.get(song).get(1);
+        double highScore = members.get(0).songTimes.get(song).get(1);
 
         for (int i = 0; i < maxIndex; i++) {
-            labels[i] = new WordleGLabel(members[i], song, highScore, lowScore);
-            labels[i].setStrokeColor(color);
+            System.out.println(i);
+            labels[i] = new WordleGLabel(members.get(i), song, highScore, lowScore);
+            if (members.get(i).position.equals("rapper")) {
+                labels[i].setStrokeColor(colorR);
+            } else if (members.get(i).position.equals("vocalist")) {
+                labels[i].setStrokeColor(colorV);
+            }
         }
     }
 
