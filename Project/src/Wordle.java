@@ -2,10 +2,7 @@ import comp124graphics.GraphicsGroup;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by bjackson on 10/12/2015.
@@ -15,30 +12,27 @@ public class Wordle extends GraphicsGroup {
     public static final int MAX_WORDS = 30;
     private WordleGLabel[] labels;
     private Random rgen;
+    private double highScore = 100.0;
+    private double lowScore = 1.0;
 
-    public Wordle(ArrayList<Member> members, Song song, Color colorR, Color colorV, double x, double y) {
+    public Wordle(HashMap<String, Member> members, Song song, Color colorR, Color colorV, double x, double y) {
         super(x,y);
         rgen = new Random();
 
-        //
-        for (Member m : members) {
-            System.out.println(m.memberName);
-        }
-        //
 
-        int maxIndex = Math.min(members.size() - 1, MAX_WORDS - 1);
+        int maxIndex = Math.min(members.size(), MAX_WORDS - 1);
+        System.out.println(members.size());
         labels = new WordleGLabel[maxIndex];
-        double lowScore = members.get(maxIndex).songTimes.get(song).get(1);
-        double highScore = members.get(0).songTimes.get(song).get(1);
 
-        for (int i = 0; i < maxIndex; i++) {
-            System.out.println(i);
-            labels[i] = new WordleGLabel(members.get(i), song, highScore, lowScore);
-            if (members.get(i).position.equals("rapper")) {
+        int i = 0;
+        for (Map.Entry<String, Member> entry : members.entrySet()) {
+            labels[i] = new WordleGLabel(entry.getValue(), song, highScore, lowScore);
+            if (entry.getValue().position.equals("rapper")) {
                 labels[i].setStrokeColor(colorR);
-            } else if (members.get(i).position.equals("vocalist")) {
+            } else if (entry.getValue().position.equals("vocalist")) {
                 labels[i].setStrokeColor(colorV);
             }
+            if (i<members.size()-1) i++;
         }
     }
 
