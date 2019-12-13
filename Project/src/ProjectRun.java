@@ -1,37 +1,46 @@
 import javax.xml.transform.stream.StreamSource;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Scanner;
-import java.util.stream.Stream;
+import java.nio.charset.Charset;
+import java.util.*;
+import java.util.stream.*;
+import java.nio.file.*;
+import java.nio.file.Paths;
 
 public class ProjectRun {
-    public static void main(String args []) {
+    public static void main(String args []) throws IOException {
         System.out.println("we have not failed yet");
-        processFile("soup.txt");
+        processFile("Soup.txt");
 
     }
 
-    public static void processFile(String txtFile) {
-        InputStream in = new ByteArrayInputStream(txtFile.getBytes());
+    static void processFile(String txt){
+        processFile(ProjectRun.class.getResourceAsStream("/" + txt));
+    }
 
-        Scanner scan = new Scanner(in).useDelimiter(".\\s*");
-        while(scan.hasNext()){
+    static void processFile(InputStream in) {
+
+        Scanner scan = new Scanner(in).useDelimiter("\n");
+
+        while(scan.hasNextLine()){
+            String song1 = scan.next();
+            Scanner sc = new Scanner(song1).useDelimiter(",");
             Group currGroup;
             boolean init = false;
 
-            String groupName = scan.next();                                 //Make new group if we haven't encountered them
+            String groupName = sc.next();                                 //Make new group if we haven't encountered them
             if(!Group.sampleGroups.containsKey(groupName)){
                 init = true;
                currGroup = Group.addGroup(groupName);
-               System.out.println(groupName);
+               //System.out.println(groupName);
             }
             else{
                 currGroup = Group.sampleGroups.get(groupName);              //else get the group object from someplace else
             }
 
-            Song newSong = new Song(scan.next(), currGroup);                //makes new song object
-            currGroup.addTimes(newSong, scan.next(), init);
+            Song newSong = new Song(sc.next(), currGroup);                //makes new song object
+            while(scan.hasNext()){
+                currGroup.addTimes(newSong, sc.next(), init);
+            }
         }
 //
 //

@@ -155,7 +155,7 @@ public class Arc extends GraphicsObject implements Colorable{
 
     @Override
     public boolean testHit(double x, double y, Graphics2D gc) {
-        int devScale = ((SunGraphics2D)gc).getSurfaceData().getDefaultScale();
+        int devScale = (int)((SunGraphics2D)gc).getSurfaceData().getDefaultScaleX();
         AffineTransform transform = new AffineTransform();
         transform.setToScale(devScale, devScale);
         Point.Double point = new Point2D.Double(x, y);

@@ -168,7 +168,7 @@ public class Line extends GraphicsObject implements Colorable {
      * @return true if this shape is the topmost object at point (x, y)
      */
     public boolean testHit(double x, double y, Graphics2D gc){
-        int devScale = ((SunGraphics2D)gc).getSurfaceData().getDefaultScale();
+        int devScale = (int)((SunGraphics2D)gc).getSurfaceData().getDefaultScaleX();
         AffineTransform transform = new AffineTransform();
         transform.setToScale(devScale, devScale);
         Point.Double point = new Point2D.Double(x, y);
