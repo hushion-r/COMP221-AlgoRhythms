@@ -29,6 +29,10 @@ public class Member {
         return songTimes;
     }
 
+    public Integer getSongPercent(Song song) {
+        return songTimes.get(song).get(1);
+    }
+
     public void setSongTimes(HashMap<Song, ArrayList<Integer>> songTimes) {
         this.songTimes = songTimes;
     }
