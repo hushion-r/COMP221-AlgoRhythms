@@ -160,7 +160,7 @@ public class GraphicsText extends GraphicsObject implements Colorable {
         if (textShape == null){
             return false;
         }
-        int devScale = ((SunGraphics2D)gc).getSurfaceData().getDefaultScale();
+        int devScale = (int)((SunGraphics2D)gc).getSurfaceData().getDefaultScaleX();
         AffineTransform transform = new AffineTransform();
         transform.setToScale(devScale, devScale);
         Point.Double point = new Point2D.Double(x, y);

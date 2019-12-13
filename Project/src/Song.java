@@ -11,6 +11,7 @@ public class Song {
     public Song(String song, Group gp){
         songName = song;
         group = gp;
+        totalTimeDist = 0;
     }
 
     public void addTime(int time){
