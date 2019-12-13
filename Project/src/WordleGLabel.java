@@ -14,7 +14,7 @@ import java.awt.image.BufferedImage;
 public class WordleGLabel extends GraphicsText {
 
     public static final int SMALLEST_FONT_SIZE = 10;
-    public static final int BIGGEST_FONT_SIZE = 90;
+    public static final int BIGGEST_FONT_SIZE = 100;
 
     private Member member = null;
     private Shape wordShape = null;
@@ -30,7 +30,7 @@ public class WordleGLabel extends GraphicsText {
         super(member.memberName, 0 , 0);
         this.member = member;
         // Determine the font size given the score value
-        int fontSize = (int)(((member.songTimes.get(song).get(1)-lowScore)/(highScore-lowScore)*(BIGGEST_FONT_SIZE-SMALLEST_FONT_SIZE))+SMALLEST_FONT_SIZE);
+        int fontSize = (int)(((member.getSongPercent(song)-lowScore)/(highScore-lowScore)*(BIGGEST_FONT_SIZE-SMALLEST_FONT_SIZE))+SMALLEST_FONT_SIZE);
         Font font = new Font("default", Font.PLAIN, fontSize);
         setFont(font);
         initializeShape();
