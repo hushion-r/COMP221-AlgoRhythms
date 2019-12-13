@@ -25,20 +25,18 @@ public class Group {
         String memName = info.substring(0, info.indexOf(":"));
         Integer distTime = Integer.parseInt(info.substring(info.indexOf(":") + 1, info.lastIndexOf(":") ));
         String role = info.substring(info.lastIndexOf(":") + 1);
-        Member newMember = null;
+        Member currMember = null;
         if(initSet){
-            newMember = new Member(memName);
-            members.put(memName, newMember);
+            currMember = new Member(memName);
+            members.put(memName, currMember);
             members.get(memName).setPosition(role);
         }
 
         ArrayList<Integer> data = new ArrayList<>(2);
         data.add(distTime);
-//        System.out.println(memName + ": " + " \n Total Singing Time: " + distTime + "\n Position: " + role);
-        currSong.memberTimes.put(newMember, data);
-        members.get(memName).getSongTimes().put(currSong, data);
-
+        currSong.memberTimes.put(currMember, data);
         currSong.addTime(distTime);                        //Increment total song time
+        members.get(memName).songTimes.put(currSong, data);
     }
 
     public static Group addGroup(String name){

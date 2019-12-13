@@ -25,15 +25,11 @@ public class Member {
         this.position = position;
     }
 
-    public HashMap<Song, ArrayList<Integer>> getSongTimes() {
-        return songTimes;
-    }
-
     public Integer getSongPercent(Song song) {
         return songTimes.get(song).get(1);
     }
 
-    public void setSongTimes(HashMap<Song, ArrayList<Integer>> songTimes) {
-        this.songTimes = songTimes;
+    public void setSongPercent(Song song, int percentage) {
+        songTimes.get(song).add(1, percentage);
     }
 }
