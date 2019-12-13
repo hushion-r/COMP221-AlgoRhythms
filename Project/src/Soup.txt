@@ -1,2 +1,2 @@
-BTS, Run, Jungkook:56, Jimin:38, RM:24, J-Hope:23, Jin:21, V:20, Suga:12;
-BTS, Hold Me Tight, Jimin:46, Jungkook:44, J-Hope:34, V:34, RM:28, Suga:27, Jin:22;
+BTS, Run, Jungkook:56:Vocalist, Jimin:38:Vocalist, RM:24:Rapper, J-Hope:23:Rapper, Jin:21:Vocalist, V:20:Vocalist, Suga:12:Rapper;
+BTS, Hold Me Tight, Jimin:46:Vocalist, Jungkook:44:Vocalist, J-Hope:34:Rapper, V:34:Vocalist, RM:28:Rapper, Suga:27:Rapper, Jin:22:Rapper;

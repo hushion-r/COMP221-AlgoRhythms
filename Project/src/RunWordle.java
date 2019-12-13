@@ -24,7 +24,6 @@ public class RunWordle {
     }
 
     public void run() {
-
         ////
         Group group1 = new Group("BTS");
         HashMap<String, Member> memberssss = new HashMap<>();
