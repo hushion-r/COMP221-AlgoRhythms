@@ -16,6 +16,7 @@ public class Wordle extends GraphicsGroup {
     private double lowScore = 1.0;
 
     public Wordle(HashMap<String, Member> members, Song song, Color colorR, Color colorV, double x, double y) {
+//    public Wordle(HashMap<String, Member> members, Song[] songs, Color colorR, Color colorV, double x, double y) {
         super(x,y);
         rgen = new Random();
 
@@ -34,6 +35,19 @@ public class Wordle extends GraphicsGroup {
             }
             if (i<members.size()-1) i++;
         }
+
+//        int j = 0;
+//        for (Song s : songs) {
+//            for (Map.Entry<String, Member> entry : members.entrySet()) {
+//                labels[i] = new WordleGLabel(entry.getValue(), s, highScore, lowScore);
+//                if (entry.getValue().position.equals("rapper")) {
+//                    labels[i].setStrokeColor(colorR);
+//                } else if (entry.getValue().position.equals("vocalist")) {
+//                    labels[i].setStrokeColor(colorV);
+//                }
+//                if (i<members.size()-1) j++;
+//            }
+//        }
     }
 
     /**
