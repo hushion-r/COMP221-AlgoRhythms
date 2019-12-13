@@ -23,17 +23,19 @@ public class Group {
 
     public void addTimes(Song currSong, String info, boolean initSet){
         String memName = info.substring(0, info.indexOf(":"));
-        int distTime = Integer.parseInt(info.substring(info.indexOf(":") + 1, info.lastIndexOf(":") ));
+        Integer distTime = Integer.parseInt(info.substring(info.indexOf(":") + 1, info.lastIndexOf(":") ));
         String role = info.substring(info.lastIndexOf(":") + 1);
-
+        Member newMember = null;
         if(initSet){
-            members.put(memName, new Member(memName));
+            newMember = new Member(memName);
+            members.put(memName, newMember);
             members.get(memName).setPosition(role);
         }
 
-        ArrayList<Integer> data = new ArrayList<Integer>();
+        ArrayList<Integer> data = new ArrayList<>(2);
         data.add(distTime);
-        System.out.println(memName + ": " + " \n Total Singing Time: " + distTime + "\n Position: " + role);
+//        System.out.println(memName + ": " + " \n Total Singing Time: " + distTime + "\n Position: " + role);
+        currSong.memberTimes.put(newMember, data);
         members.get(memName).getSongTimes().put(currSong, data);
 
         currSong.addTime(distTime);                        //Increment total song time
