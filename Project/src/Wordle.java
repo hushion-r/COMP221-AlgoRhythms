@@ -15,8 +15,9 @@ public class Wordle extends GraphicsGroup {
     private double highScore = 100.0;
     private double lowScore = 1.0;
 
+    // go through songs in one group
     public Wordle(HashMap<String, Member> members, Song song, Color colorR, Color colorV, double x, double y) {
-//    public Wordle(HashMap<String, Member> members, Song[] songs, Color colorR, Color colorV, double x, double y) {
+//    public Wordle(Group group, Color colorR, Color colorV, double x, double y) {
         super(x,y);
         rgen = new Random();
 
