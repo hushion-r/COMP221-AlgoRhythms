@@ -25,6 +25,9 @@ public class RunWordle {
 
     public void run() {
         ////
+//        for(Group currGroup: Group.sampleGroups.values()){
+//            Wordle wordle = new Wordle(currGroup, songsToCompare[0], Color.RED, Color.GREEN, canvas.getWidth() / 2.0, canvas.getHeight() / 2.0);
+//        }
         Group group1 = new Group("BTS");
         HashMap<String, Member> memberssss = new HashMap<>();
         Song song1 = new Song("Run", group1);

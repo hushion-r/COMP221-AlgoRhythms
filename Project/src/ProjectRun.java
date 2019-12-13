@@ -1,15 +1,10 @@
-import javax.xml.transform.stream.StreamSource;
 import java.io.*;
-import java.nio.charset.Charset;
 import java.util.*;
-import java.util.stream.*;
-import java.nio.file.*;
-import java.nio.file.Paths;
 
 public class ProjectRun {
-    public static void main(String args []) throws IOException {
-        System.out.println("we have not failed yet");
+    public static void main(String args [])  {
         processFile("Soup.txt");
+
 
     }
 
@@ -35,31 +30,20 @@ public class ProjectRun {
                 currGroup = Group.sampleGroups.get(groupName);              //else get the group object from someplace else
             }
 
-            Song newSong = new Song(sc.next(), currGroup);//makes new song object
-            System.out.println(newSong.songName);
+            Song currSong = new Song(sc.next(), currGroup);//makes new song object
+            currGroup.allSongs.add(currSong);
+            System.out.println(currSong.songName);
             while (sc.hasNext()) {
-                currGroup.addTimes(newSong, sc.next(), init);
+                currGroup.addTimes(currSong, sc.next(), init);
             }
+            assignPercentages(currSong, currSong.totalTimeDist);
             sc.close();
             currLine = scan.next();
         }
         scan.close();
-//
-//                /* READ UNTIL "."
-//            Read all until ","
-//            1st time - groupName
-//                does group exist already?
-//            2nd - songName
-//                create Song object
-//            After - create members
-//                IF group doesn't exits
-//                IF group exists, add info to Member.songsAndTimes
-//
-////        assignPercentages();
-//
     }
 
-    public void assignPercentages(Song song, Integer total) {
+    public static void assignPercentages(Song song, Integer total) {
         Integer percentage = 0;
         for (Member member : song.memberTimes.keySet()) {
             percentage = song.memberTimes.get(member).get(0) / total * 100;

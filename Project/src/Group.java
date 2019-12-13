@@ -4,6 +4,7 @@ public class Group {
     String groupName;
     public static HashMap<String, Group> sampleGroups  = new HashMap();
     HashMap<String, Member> members = new HashMap<>();
+    ArrayList<Song> allSongs = new ArrayList<>();
 
     public Group(String group){
 
