@@ -1,10 +1,11 @@
+import javax.swing.*;
 import java.io.*;
 import java.util.*;
 ///fnisfbidnbjk
 public class ProjectRun {
     public static void main(String args [])  {
         processFile("Soup.txt");
-        RunWordle wordle = new RunWordle();
+        RunWordle wordle = new RunWordle(new JFrame());
         wordle.run(Group.sampleGroups);
 //        wordle.run(Group.sampleGroups.get("BTS").members, Group.sampleGroups.get("BTS").allSongs.get(0));
     }

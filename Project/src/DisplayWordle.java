@@ -23,11 +23,16 @@ public class DisplayWordle extends JFrame {
 
         new JFrame(text).setTitle(text);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setBounds(0, 0, 1700, 800);
+        this.setSize(1700, 800);
         createBanner();
+        JLabel back = new JLabel(new ImageIcon("kpop.jpg"));
+        add(back);
 
         this.pack();
         this.setVisible(true);
+
+        RunWordle wordle = new RunWordle(this);
+        wordle.run(Group.sampleGroups);
     }
 
     public static void main(String args[]){
@@ -66,9 +71,8 @@ public class DisplayWordle extends JFrame {
            String song2 = songList2.getSelectedValue().toString();
            updateWordle(song1, song2);
        });
-
+        bothGroups.add(compare);
         add(bothGroups);
-        add(compare);
     }
 
     public void addMain(){

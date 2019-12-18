@@ -1,5 +1,6 @@
 import comp124graphics.CanvasWindow;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
 
@@ -13,8 +14,8 @@ public class RunWordle {
     private double y;
 
 
-    public RunWordle() {
-        canvas = new CanvasWindow("Wordle", 1600, 800);
+    public RunWordle(JFrame jFrame) {
+        canvas = new CanvasWindow("Wordle", 1600, 800, jFrame);
         y = canvas.getHeight() / 2.0;
     }
 
