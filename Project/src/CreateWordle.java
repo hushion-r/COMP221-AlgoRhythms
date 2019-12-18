@@ -1,6 +1,5 @@
 import comp124graphics.CanvasWindow;
 
-import javax.swing.*;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -21,13 +20,13 @@ public class CreateWordle {
     }
 
     public void run(HashMap<String, Group> groups) {
-        double d = 1.5;
+        double d = canvas.getWidth()/4.0;
         for (Group currGroup : groups.values()) {
-            Wordle wordle = new Wordle(currGroup, currGroup.allSongs.get(0), canvas.getWidth() / d, y);
+            Wordle wordle = new Wordle(currGroup, currGroup.allSongs.get(0), (canvas.getWidth()/2.0) + d, y);
             wordles.put(currGroup, wordle);
             canvas.add(wordle);
             wordle.doLayout();
-            d += d;
+            d = -d;
         }
         canvas.pause(1000);
     }

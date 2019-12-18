@@ -13,8 +13,8 @@ import java.awt.image.BufferedImage;
  */
 public class WordleGLabel extends GraphicsText {
 
-    public static final int SMALLEST_FONT_SIZE = 10;
-    public static final int BIGGEST_FONT_SIZE = 100;
+    public static final int SMALLEST_FONT_SIZE = 20;
+    public static final int BIGGEST_FONT_SIZE = 120;
 
     private Member member = null;
     private Shape wordShape = null;

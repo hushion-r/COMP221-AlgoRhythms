@@ -26,14 +26,14 @@ public class CanvasWindow extends JPanel implements GraphicsObserver{
      */
     private ConcurrentLinkedDeque<GraphicsObject> gObjects;
 
-    public CanvasWindow(String title, int windowWidth, int windowHeight, JFrame jFrame){
+    public CanvasWindow(String title, int windowWidth, int windowHeight){
         setPreferredSize (new Dimension(windowWidth, windowHeight));
         setBackground (Color.white);
 
         gObjects = new ConcurrentLinkedDeque<GraphicsObject>();
 
-        windowFrame = jFrame;
-        windowFrame.add(this);
+//        windowFrame = jFrame;
+//        windowFrame.add(this);
 //        windowFrame = new JFrame (title);
 //        windowFrame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 //        windowFrame.getContentPane().add(this);

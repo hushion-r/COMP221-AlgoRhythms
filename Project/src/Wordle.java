@@ -1,4 +1,5 @@
 import comp124graphics.GraphicsGroup;
+import comp124graphics.GraphicsText;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,6 +40,7 @@ public class Wordle extends GraphicsGroup {
     }
 
     public void updateWordle2(Song song) {
+        this.song = song;
         int i = 0;
         for (Member mem : song.group.members.values()) {
             labels[i] = new WordleGLabel(mem, song, highScore, lowScore);
@@ -76,6 +78,8 @@ public class Wordle extends GraphicsGroup {
 
             pause(100);
         }
+        GraphicsText gText = new GraphicsText(song.songName, (float) 0.0, (float) 550.0);
+        add(gText);
     }
 
     /**
