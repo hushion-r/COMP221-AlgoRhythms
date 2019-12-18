@@ -18,8 +18,8 @@ public class DisplayWordle extends JFrame {
             }
         });
 
-        default1 = Group.sampleGroups.get("GOT7");
-        default2 = Group.sampleGroups.get("BTS");
+        default1 = Group.allGroups.get("GOT7");
+        default2 = Group.allGroups.get("BTS");
 
         new JFrame(text).setTitle(text);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -31,16 +31,16 @@ public class DisplayWordle extends JFrame {
         this.pack();
         this.setVisible(true);
 
-        RunWordle wordle = new RunWordle(this);
-        wordle.run(Group.sampleGroups);
+        CreateWordle wordle = new CreateWordle(this);
+        wordle.run(Group.allGroups);
     }
 
     public static void main(String args[]){
-        ProjectRun.processFile("soup.txt");
+        CreateWordle.processFile("soup.txt");
 
         new DisplayWordle("Kpop Line Distribution Go!");
 
-        System.out.println(Group.sampleGroups.toString());
+        System.out.println(Group.allGroups.toString());
     }
 
     public void createBanner(){

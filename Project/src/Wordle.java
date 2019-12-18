@@ -18,7 +18,6 @@ public class Wordle extends GraphicsGroup {
     public Song song;
 
     // go through songs in one group
-//    public Wordle(HashMap<String, Member> members, Song song, double x, double y) {
     public Wordle(Group group, Song song, double x, double y) {
         super(x,y);
         this.song = song;

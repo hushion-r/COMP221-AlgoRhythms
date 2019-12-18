@@ -1,9 +1,9 @@
 import java.util.*;
-import java.util.stream.Stream;
 
 public class Group {
+    public static HashMap<String, Group> allGroups = new HashMap();
+
     String groupName;
-    public static HashMap<String, Group> sampleGroups  = new HashMap();
     HashMap<String, Member> members = new HashMap<>();
     ArrayList<Song> allSongs = new ArrayList<>();
 
@@ -27,13 +27,13 @@ public class Group {
         ArrayList<Integer> data = new ArrayList<>(2);
         data.add(distTime);
         currSong.memberTimes.put(currMember, data);
-        currSong.addTime(distTime);                        //Increment total song time
+        currSong.calcTotalTimeDistr(distTime);                        //Increment total song time
         members.get(memName).songTimes.put(currSong, data);
     }
 
     public static Group addGroup(String name){
         Group addedGroup = new Group(name);
-        sampleGroups.put(name, addedGroup);
+        allGroups.put(name, addedGroup);
         return addedGroup;
     }
 

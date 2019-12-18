@@ -13,11 +13,11 @@ public class Song {
         totalTimeDist = 0;
     }
 
-    public void addTime(int time){
-        totalTimeDist += time;
+    public void calcTotalTimeDistr(int seconds){
+        totalTimeDist += seconds;
     }
 
-    public void assignPercentages() {
+    public void calcPercentages() {
         double percentage;
         for (Member member : this.memberTimes.keySet()) {
             percentage = ((double) this.memberTimes.get(member).get(0) / totalTimeDist) * 100.0;

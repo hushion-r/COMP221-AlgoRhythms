@@ -61,14 +61,6 @@ public class WordleGLabel extends GraphicsText {
     }
 
     /**
-     * Get wordscore
-     * @return
-     */
-    public Member getMember() {
-        return member;
-    }
-
-    /**
      * Updates the shape based on moving the position of the label
      * @param dx delta x
      * @param dy delta y
