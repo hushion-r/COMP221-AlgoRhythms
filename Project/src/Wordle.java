@@ -18,26 +18,39 @@ public class Wordle extends GraphicsGroup {
     public Song song;
 
     // go through songs in one group
-    public Wordle(HashMap<String, Member> members, Song song, Color colorR, Color colorV, double x, double y) {
-//    public Wordle(Group group, Color colorR, Color colorV, double x, double y) {
+//    public Wordle(HashMap<String, Member> members, Song song, double x, double y) {
+    public Wordle(Group group, Song song, double x, double y) {
         super(x,y);
         this.song = song;
         rgen = new Random();
 
-
-        int maxIndex = Math.min(members.size(), MAX_WORDS - 1);
+        int maxIndex = Math.min(group.members.size(), MAX_WORDS - 1);
         labels = new WordleGLabel[maxIndex];
 
         int i = 0;
-        for (Map.Entry<String, Member> entry : members.entrySet()) {
-            labels[i] = new WordleGLabel(entry.getValue(), song, highScore, lowScore);
-            if (entry.getValue().position.equals("rapper")) {
-                labels[i].setStrokeColor(colorR);
-            } else if (entry.getValue().position.equals("vocalist")) {
-                labels[i].setStrokeColor(colorV);
+        for (Member mem : group.members.values()) {
+            labels[i] = new WordleGLabel(mem, song, highScore, lowScore);
+            if (mem.position.equals("rapper")) {
+                labels[i].setStrokeColor(Color.RED);
+            } else if (mem.position.equals("vocalist")) {
+                labels[i].setStrokeColor(Color.GREEN);
             }
-            if (i<members.size()-1) i++;
+            if (i<group.members.size()-1) i++;
         }
+    }
+
+    public void updateWordle(Group group, Song song) {
+        int i = 0;
+        for (Member mem : group.members.values()) {
+            labels[i] = new WordleGLabel(mem, song, highScore, lowScore);
+            if (mem.position.equals("rapper")) {
+                labels[i].setStrokeColor(Color.RED);
+            } else if (mem.position.equals("vocalist")) {
+                labels[i].setStrokeColor(Color.GREEN);
+            }
+            if (i<group.members.size()-1) i++;
+        }
+
     }
 
 
