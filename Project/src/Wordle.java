@@ -38,16 +38,16 @@ public class Wordle extends GraphicsGroup {
         }
     }
 
-    public void updateWordle(Group group, Song song) {
+    public void updateWordle2(Song song) {
         int i = 0;
-        for (Member mem : group.members.values()) {
+        for (Member mem : song.group.members.values()) {
             labels[i] = new WordleGLabel(mem, song, highScore, lowScore);
             if (mem.position.equals("rapper")) {
                 labels[i].setStrokeColor(Color.RED);
             } else if (mem.position.equals("vocalist")) {
                 labels[i].setStrokeColor(Color.GREEN);
             }
-            if (i<group.members.size()-1) i++;
+            if (i<song.group.members.size()-1) i++;
         }
 
     }
@@ -57,7 +57,7 @@ public class Wordle extends GraphicsGroup {
      * Positions each WordleGLabel according to the wordle algorithm.
      */
     public void doLayout() {
-        Point.Double center = new Point2D.Double(0.0, 0.0);
+        Point.Double center = new Point2D.Double(0.0, 400.0);
         for(int i=0; i < labels.length; i++){
             Point2D.Double initialPosition = makeInitialPosition(center);
             double xPos = initialPosition.x;

@@ -15,9 +15,9 @@ public class CreateWordle {
     private double y;
 
 
-    public CreateWordle(JFrame jFrame) {
-        canvas = new CanvasWindow("Wordle", 1600, 800, jFrame);
-        y = canvas.getHeight() / 2.0;
+    public CreateWordle() {
+        canvas = new CanvasWindow("Wordle", 1600, 800);
+        y = canvas.getHeight();
     }
 
     public void run(HashMap<String, Group> groups) {
@@ -30,18 +30,12 @@ public class CreateWordle {
             d += d;
         }
         canvas.pause(1000);
-        updateWordle(groups.get("BTS"), groups.get("BTS").allSongs.get(1));
-//            wordle.removeAll();
-
-//        Wordle wordle = new Wordle(groups.get("BTS").members, groups.get("BTS").allSongs.get(1), Color.RED, Color.GREEN, canvas.getWidth() / 2.0, canvas.getHeight() / 2.0);
-//        canvas.add(wordle);
-//        wordle.doLayout();
     }
 
-    public void updateWordle(Group group, Song song) {
-        Wordle wordle = wordles.get(group);
+    public void updateWordle(Song song) {
+        Wordle wordle = wordles.get(song.group);
         wordle.removeAll();
-        wordle.updateWordle(group,song);
+        wordle.updateWordle2(song);
         wordle.doLayout();
     }
 
@@ -78,5 +72,9 @@ public class CreateWordle {
             currLine = scan.next();
         }
         scan.close();
+    }
+
+    public CanvasWindow getCanvas() {
+        return canvas;
     }
 }

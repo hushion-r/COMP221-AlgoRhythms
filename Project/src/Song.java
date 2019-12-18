@@ -31,5 +31,8 @@ public class Song {
         }
     }
 
-
+        @Override
+        public String toString(){
+            return this.songName;
+        }
 }

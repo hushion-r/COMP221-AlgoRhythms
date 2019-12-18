@@ -7,6 +7,9 @@ public class DisplayWordle extends JFrame {
 
     private Group default1;
     private Group default2;
+    private Song song1;
+    private Song song2;
+    private CreateWordle createWordle;
 
     public DisplayWordle(String text) {
 
@@ -14,7 +17,7 @@ public class DisplayWordle extends JFrame {
             @Override
             public void paintComponent(Graphics image){
                 super.paintComponent(image);
-                image.drawImage(background, 0, 0, null);
+                image.drawImage(background, 0, 0, this);
             }
         });
 
@@ -25,14 +28,14 @@ public class DisplayWordle extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(1700, 800);
         createBanner();
-        JLabel back = new JLabel(new ImageIcon("kpop.jpg"));
-        add(back);
+        //JLabel back = new JLabel(new ImageIcon("kpop.jpg"));
+        //add(back);
 
+        createWordle = new CreateWordle();
+        add(createWordle.getCanvas());
         this.pack();
         this.setVisible(true);
-
-        CreateWordle wordle = new CreateWordle(this);
-        wordle.run(Group.allGroups);
+        createWordle.run(Group.allGroups);
     }
 
     public static void main(String args[]){
@@ -52,7 +55,7 @@ public class DisplayWordle extends JFrame {
         JLabel firstName = new JLabel(default1.groupName);
         firstGroup.add(firstName);
         //Song list for the first group
-        JList songList1 = new JList(default1.getSongNames());
+        JList<Song> songList1 = new JList(default1.allSongs.toArray());
         firstGroup.add(songList1);
         bothGroups.add(firstGroup);
 
@@ -61,15 +64,16 @@ public class DisplayWordle extends JFrame {
         JLabel secondName = new JLabel(default2.groupName);
         secondGroup.add(secondName);
         //list of songs for second group
-        JList songList2 = new JList(default2.getSongNames());
+        JList<Song> songList2 = new JList(default2.allSongs.toArray());
         secondGroup.add(songList2);
         bothGroups.add(secondGroup);
 
         JButton compare = new JButton("Compare Go!");
         compare.addActionListener(e -> {
-           String song1 = songList1.getSelectedValue().toString();
-           String song2 = songList2.getSelectedValue().toString();
-           updateWordle(song1, song2);
+           Song song1 = songList1.getSelectedValue();
+           Song song2 = songList2.getSelectedValue();
+           createWordle.updateWordle(song1);
+           createWordle.updateWordle(song2);
        });
         bothGroups.add(compare);
         add(bothGroups);
