@@ -2,5 +2,5 @@ BTS, Run, Jungkook:56:vocalist, Jimin:38:vocalist, RM:24:rapper, J-Hope:23:rappe
 BTS, Hold Me Tight, Jimin:46:vocalist, Jungkook:44:vocalist, J-Hope:34:rapper, V:34:vocalist, RM:28:rapper, Suga:27:rapper, Jin:22:rapper;
 GOT7, Just Right, Youngjae:36:vocalist, JB:30:vocalist, Jinyoung:30:vocalist, Jackson:20:rapper, BamBam:20:rapper, Mark:16:rapper, Yugyeom:14:vocalist;
 GOT7, Hard Carry, Jinyoung:19:vocalist, JB:17:vocalist, Youngjae:17:vocalist, Mark:14:rapper, BamBam:13:rapper, Jackson:13:rapper, Yugyeom:13:vocalist;
-iKON, Rhythm Ta, B.I:60:rapper, Bobby:50:rapper, Jinhwan:28:vocalist, Junhoe:27:vocals, Yunhyung:12:vocalist, Donghyuk:12:vocalist, Chanwoo:23:vocalist;
+iKON, Rhythm Ta, B.I:60:rapper, Bobby:50:rapper, Jinhwan:28:vocalist, Junhoe:27:vocalist, Yunhyung:12:vocalist, Donghyuk:12:vocalist, Chanwoo:23:vocalist;
 
