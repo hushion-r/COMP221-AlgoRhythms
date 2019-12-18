@@ -14,7 +14,6 @@ public class ProjectRun {
     }
 
     static void processFile(InputStream in) {
-        //ffffffff
         Scanner scan = new Scanner(in).useDelimiter(";");
         String currLine = scan.next().trim();
         currLine = currLine.replaceAll("\r\n", "");
