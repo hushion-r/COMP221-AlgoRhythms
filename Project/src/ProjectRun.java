@@ -20,7 +20,7 @@ public class ProjectRun {
         currLine = currLine.replaceAll("\r\n", "");
         System.out.println(currLine);
         while(scan.hasNext() && !currLine.equals("\r\n.")) {
-            Scanner sc = new Scanner(currLine).useDelimiter(", ");
+            Scanner sc = new Scanner(currLine.replaceAll("\r\n", "")).useDelimiter(", ");
             Group currGroup;
             boolean init = false;
 
@@ -48,6 +48,5 @@ public class ProjectRun {
             System.out.println(currSong.songName);
         }
         scan.close();
-        System.out.println("help");
     }
 }

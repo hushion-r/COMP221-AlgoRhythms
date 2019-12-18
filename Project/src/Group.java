@@ -31,7 +31,7 @@ public class Group {
             members.put(memName, currMember);
             members.get(memName).setPosition(role);
         }
-
+        currMember = members.get(memName);
         ArrayList<Integer> data = new ArrayList<>(2);
         data.add(distTime);
         currSong.memberTimes.put(currMember, data);

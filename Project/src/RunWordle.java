@@ -26,7 +26,7 @@ public class RunWordle {
             canvas.add(wordle);
             wordle.doLayout();
 
-            wordle.pause(200);
+            wordle.pause(1000);
             wordle.removeAll();
         }
 
