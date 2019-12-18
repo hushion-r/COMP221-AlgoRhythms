@@ -3,6 +3,14 @@ import java.awt.*;
 
 
 // Run class
+
+/*
+ * HOW TO USE:
+ * 1) Run this file
+ * 2) In the top selector, click on 1 song from GOT7 and 1 song from BTS
+ * 3) Click "Compare Go!" button
+ * 4) Wait a few seconds for it to update
+*/
 public class DisplayWordle extends JFrame {
 
     private Group default1;     // The two groups to compare
