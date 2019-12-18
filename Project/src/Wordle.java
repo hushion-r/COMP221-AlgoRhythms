@@ -15,11 +15,13 @@ public class Wordle extends GraphicsGroup {
     private Random rgen;
     private double highScore = 100.0;
     private double lowScore = 1.0;
+    public Song song;
 
     // go through songs in one group
     public Wordle(HashMap<String, Member> members, Song song, Color colorR, Color colorV, double x, double y) {
 //    public Wordle(Group group, Color colorR, Color colorV, double x, double y) {
         super(x,y);
+        this.song = song;
         rgen = new Random();
 
 

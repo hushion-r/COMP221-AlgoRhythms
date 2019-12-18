@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Group {
     String groupName;
@@ -34,5 +35,17 @@ public class Group {
         Group addedGroup = new Group(name);
         sampleGroups.put(name, addedGroup);
         return addedGroup;
+    }
+
+    public String[] getSongNames () {
+        String[] songNames = new String[20];
+
+        int i = 0;
+        for (Song song : allSongs) {
+            songNames[i] = song.songName;
+            i++;
+        }
+
+        return songNames;
     }
 }
