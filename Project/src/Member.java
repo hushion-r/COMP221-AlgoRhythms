@@ -9,14 +9,6 @@ public class Member {
         memberName = nme;
     }
 
-    public String getMemberName() {
-        return memberName;
-    }
-
-    public void setMemberName(String memberName) {
-        this.memberName = memberName;
-    }
-
     public String getPosition() {
         return position;
     }

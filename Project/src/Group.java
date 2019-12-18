@@ -12,15 +12,6 @@ public class Group {
 
     }
 
-    public String getGroupName() {
-        return groupName;
-    }
-
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
-
-
     public void addTimes(Song currSong, String info, boolean initSet){
         String memName = info.substring(0, info.indexOf(":"));
         Integer distTime = Integer.parseInt(info.substring(info.indexOf(":") + 1, info.lastIndexOf(":") ));
@@ -31,7 +22,7 @@ public class Group {
             members.put(memName, currMember);
             members.get(memName).setPosition(role);
         }
-
+        currMember = members.get(memName);
         ArrayList<Integer> data = new ArrayList<>(2);
         data.add(distTime);
         currSong.memberTimes.put(currMember, data);

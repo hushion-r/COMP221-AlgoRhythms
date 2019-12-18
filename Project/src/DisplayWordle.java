@@ -16,8 +16,8 @@ public class DisplayWordle extends JFrame {
 
         System.out.println(Group.sampleGroups.toString());
 
-        System.out.print("Group I'm trying to include" + default1.getGroupName());
-        System.out.print("Second Group I'm trying to include" + default2.getGroupName());
+        System.out.print("Group I'm trying to include" + default1.groupName);
+        System.out.print("Second Group I'm trying to include" + default2.groupName);
 
 
         new JFrame(title);

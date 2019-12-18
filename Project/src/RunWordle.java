@@ -1,11 +1,7 @@
 import comp124graphics.CanvasWindow;
 
 import java.awt.*;
-import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
 
 /**
  * Created by bjackson.
@@ -26,7 +22,7 @@ public class RunWordle {
             canvas.add(wordle);
             wordle.doLayout();
 
-            wordle.pause(200);
+            wordle.pause(1000);
             wordle.removeAll();
         }
 

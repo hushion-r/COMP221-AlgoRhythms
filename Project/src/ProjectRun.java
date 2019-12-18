@@ -14,13 +14,12 @@ public class ProjectRun {
     }
 
     static void processFile(InputStream in) {
-
         Scanner scan = new Scanner(in).useDelimiter(";");
         String currLine = scan.next().trim();
         currLine = currLine.replaceAll("\r\n", "");
         System.out.println(currLine);
         while(scan.hasNext() && !currLine.equals("\r\n.")) {
-            Scanner sc = new Scanner(currLine).useDelimiter(", ");
+            Scanner sc = new Scanner(currLine.replaceAll("\r\n", "")).useDelimiter(", ");
             Group currGroup;
             boolean init = false;
 
@@ -28,12 +27,9 @@ public class ProjectRun {
             if (!Group.sampleGroups.containsKey(groupName)) {
                 init = true;
                 currGroup = Group.addGroup(groupName);
-                System.out.println("yes");
             }
             else {
                 currGroup = Group.sampleGroups.get(groupName);              //else get the group object from someplace else
-                System.out.println("no");
-
             }
 
             Song currSong = new Song(sc.next().trim(), currGroup);//makes new song object
@@ -44,10 +40,7 @@ public class ProjectRun {
             currSong.assignPercentages();
             sc.close();
             currLine = scan.next();
-
-            System.out.println(currSong.songName);
         }
         scan.close();
-        System.out.println("help");
     }
 }
