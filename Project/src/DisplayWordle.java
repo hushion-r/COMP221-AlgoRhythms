@@ -23,11 +23,11 @@ public class DisplayWordle extends JFrame {
 
         new JFrame(text).setTitle(text);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setSize(1700, 900);
+        this.setBounds(0, 0, 1700, 800);
         createBanner();
 
-        pack();
-        setVisible(true);
+        this.pack();
+        this.setVisible(true);
     }
 
     public static void main(String args[]){
@@ -47,7 +47,7 @@ public class DisplayWordle extends JFrame {
         JLabel firstName = new JLabel(default1.groupName);
         firstGroup.add(firstName);
         //Song list for the first group
-        JList songList1 = new JList(default1.allSongs.toArray());
+        JList songList1 = new JList(default1.getSongNames());
         firstGroup.add(songList1);
         bothGroups.add(firstGroup);
 
@@ -56,7 +56,7 @@ public class DisplayWordle extends JFrame {
         JLabel secondName = new JLabel(default2.groupName);
         secondGroup.add(secondName);
         //list of songs for second group
-        JList songList2 = new JList(default2.allSongs.toArray());
+        JList songList2 = new JList(default2.getSongNames());
         secondGroup.add(songList2);
         bothGroups.add(secondGroup);
 
@@ -69,6 +69,11 @@ public class DisplayWordle extends JFrame {
 
         add(bothGroups);
         add(compare);
+    }
+
+    public void addMain(){
+        JPanel main = new JPanel();
+        main.setSize(1700, 800);
     }
 
 
