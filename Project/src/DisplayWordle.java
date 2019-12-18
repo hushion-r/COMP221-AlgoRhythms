@@ -1,5 +1,3 @@
-import comp124graphics.Image;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,7 +6,7 @@ public class DisplayWordle extends JFrame {
     private Group default1;
     private Group default2;
 
-    public DisplayWordle(String title) {
+    public DisplayWordle(String text) {
         ProjectRun.processFile("soup.txt");
 
         default1 = Group.sampleGroups.get("GOT7");
@@ -16,35 +14,39 @@ public class DisplayWordle extends JFrame {
 
         System.out.println(Group.sampleGroups.toString());
 
-        System.out.print("Group I'm trying to include" + default1.groupName);
-        System.out.print("Second Group I'm trying to include" + default2.groupName);
+//        System.out.print("Group I'm trying to include" + default1.groupName);
+//        System.out.print("Second Group I'm trying to include" + default2.groupName);
 
 
-        new JFrame(title);
+        new JFrame(text);
+
+        this.setSize(1700, 900);
+        setUpBackground();
         createBanner();
+
         pack();
         setVisible(true);
-//        addGroup(default1);
-//        addGroup(default2);
+
     }
 
     public static void main(String args[]){
-        new DisplayWordle("Test");
+        new DisplayWordle("Kpop Line Distribution Go!");
     }
 
     public void createBanner(){
         JPanel bothGroups = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-
+        bothGroups.setBackground(Color.WHITE);
+        bothGroups.setSize(850, 20);
 
         JPanel firstGroup = new JPanel();
         JLabel firstName = new JLabel(default1.groupName);
-
         firstGroup.add(firstName);
         //Song list for the first group
         JList songList1 = new JList(default1.allSongs.toArray());
         firstGroup.add(songList1);
         bothGroups.add(firstGroup);
 
+        //Repeat for second group
         JPanel secondGroup = new JPanel();
         JLabel secondName = new JLabel(default2.groupName);
         secondGroup.add(secondName);
@@ -53,30 +55,36 @@ public class DisplayWordle extends JFrame {
         secondGroup.add(songList2);
         bothGroups.add(secondGroup);
 
-//        JButton compare = new JButton("Compare");
-//        compare.addActionListener(e -> );
+        JButton compare = new JButton("Compare Go!");
+        compare.addActionListener(e -> {
+           String song1 = songList1.getSelectedValue().toString();
+           String song2 = songList2.getSelectedValue().toString();
+           updateWordle(song1, song2);
+       });
 
+        add(compare);
         add(bothGroups);
     }
 
+    /**
+     * Credits to @Samual Sam from Tutorials Point for how to include a background image
+     */
+    public void setUpBackground(){
+        Image background = Toolkit.getDefaultToolkit().getImage("kpop.jpg");
+        this.setContentPane(new JPanel(){
+                @Override
+                public void paintComponent(Graphics image){
+                    super.paintComponent(image);
+                    image.drawImage(background, 0, 0, null);
+                }
+        });
+    }
+
+    public void updateWordle(String song1, String song2 ){
+        // needs to update wordle and return two wordle things
+//           add(new Wordle(song1, song2))
 
 
-//    public void updateGroup(Group grp){
-//       // BoxLayout group1Box = new BoxLayout(this, width);
-//        JPanel newGroup = new JPanel();
-//
-//        //Label Name of Group
-//        JLabel groupName = new JLabel(grp.groupName, Label.LEFT);
-//        newGroup.add(groupName);
-//
-//        JList allSongs = new JList(grp.allSongs.toArray());
-//        newGroup.add(allSongs);
-//
-//
-//
-//        add(newGroup);
-//
-//    }
-
+    }
 
 }
