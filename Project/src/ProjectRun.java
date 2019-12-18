@@ -28,12 +28,9 @@ public class ProjectRun {
             if (!Group.sampleGroups.containsKey(groupName)) {
                 init = true;
                 currGroup = Group.addGroup(groupName);
-                System.out.println("yes");
             }
             else {
                 currGroup = Group.sampleGroups.get(groupName);              //else get the group object from someplace else
-                System.out.println("no");
-
             }
 
             Song currSong = new Song(sc.next().trim(), currGroup);//makes new song object
@@ -44,8 +41,6 @@ public class ProjectRun {
             currSong.assignPercentages();
             sc.close();
             currLine = scan.next();
-
-            System.out.println(currSong.songName);
         }
         scan.close();
     }

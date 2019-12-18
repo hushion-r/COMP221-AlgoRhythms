@@ -12,15 +12,6 @@ public class Group {
 
     }
 
-    public String getGroupName() {
-        return groupName;
-    }
-
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
-
-
     public void addTimes(Song currSong, String info, boolean initSet){
         String memName = info.substring(0, info.indexOf(":"));
         Integer distTime = Integer.parseInt(info.substring(info.indexOf(":") + 1, info.lastIndexOf(":") ));

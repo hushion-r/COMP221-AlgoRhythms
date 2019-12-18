@@ -26,7 +26,6 @@ public class Song {
             // set percentage in Song object
 
             System.out.print(member);
-//            System.out.println(member.memberName);
             member.setSongPercent(this, (int) percentage);
             // set percentage in Member object
         }
