@@ -53,8 +53,13 @@ public class DisplayWordle extends JFrame {
         secondGroup.add(songList2);
         bothGroups.add(secondGroup);
 
+//        JButton compare = new JButton("Compare");
+//        compare.addActionListener(e -> );
+
         add(bothGroups);
     }
+
+
 
 //    public void updateGroup(Group grp){
 //       // BoxLayout group1Box = new BoxLayout(this, width);
