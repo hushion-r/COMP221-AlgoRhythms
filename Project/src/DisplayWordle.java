@@ -16,6 +16,10 @@ public class DisplayWordle extends JFrame {
 
         System.out.println(Group.sampleGroups.toString());
 
+        System.out.print("Group I'm trying to include" + default1.getGroupName());
+        System.out.print("Second Group I'm trying to include" + default2.getGroupName());
+
+
         new JFrame(title);
         createBanner();
         pack();
@@ -30,10 +34,10 @@ public class DisplayWordle extends JFrame {
 
     public void createBanner(){
         JPanel bothGroups = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        System.out.print("Group I'm trying to include" + default1.groupName);
+
 
         JPanel firstGroup = new JPanel();
-        JLabel firstName = new JLabel(default1.groupName);
+        JLabel firstName = new JLabel(default1.getGroupName());
 
         firstGroup.add(firstName);
         //Song list for the first group
@@ -42,8 +46,7 @@ public class DisplayWordle extends JFrame {
         bothGroups.add(firstGroup);
 
         JPanel secondGroup = new JPanel();
-        System.out.print("Second Group I'm trying to include" + default2.groupName);
-        JLabel secondName = new JLabel(default2.groupName);
+        JLabel secondName = new JLabel(default2.getGroupName());
         secondGroup.add(secondName);
         //list of songs for second group
         JList songList2 = new JList(default2.allSongs.toArray());
