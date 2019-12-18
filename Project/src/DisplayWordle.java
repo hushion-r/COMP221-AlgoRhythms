@@ -3,34 +3,39 @@ import java.awt.*;
 
 public class DisplayWordle extends JFrame {
 
+    Image background = Toolkit.getDefaultToolkit().getImage("kpop.jpg");
+
     private Group default1;
     private Group default2;
 
     public DisplayWordle(String text) {
-        ProjectRun.processFile("soup.txt");
+
+        this.setContentPane(new JPanel(){
+            @Override
+            public void paintComponent(Graphics image){
+                super.paintComponent(image);
+                image.drawImage(background, 0, 0, null);
+            }
+        });
 
         default1 = Group.sampleGroups.get("GOT7");
         default2 = Group.sampleGroups.get("BTS");
 
-        System.out.println(Group.sampleGroups.toString());
-
-//        System.out.print("Group I'm trying to include" + default1.groupName);
-//        System.out.print("Second Group I'm trying to include" + default2.groupName);
-
-
-        new JFrame(text);
-
+        new JFrame(text).setTitle(text);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(1700, 900);
-        setUpBackground();
         createBanner();
 
         pack();
         setVisible(true);
-
     }
 
     public static void main(String args[]){
+        ProjectRun.processFile("soup.txt");
+
         new DisplayWordle("Kpop Line Distribution Go!");
+
+        System.out.println(Group.sampleGroups.toString());
     }
 
     public void createBanner(){
@@ -62,28 +67,14 @@ public class DisplayWordle extends JFrame {
            updateWordle(song1, song2);
        });
 
-        add(compare);
         add(bothGroups);
+        add(compare);
     }
 
-    /**
-     * Credits to @Samual Sam from Tutorials Point for how to include a background image
-     */
-    public void setUpBackground(){
-        Image background = Toolkit.getDefaultToolkit().getImage("kpop.jpg");
-        this.setContentPane(new JPanel(){
-                @Override
-                public void paintComponent(Graphics image){
-                    super.paintComponent(image);
-                    image.drawImage(background, 0, 0, null);
-                }
-        });
-    }
 
     public void updateWordle(String song1, String song2 ){
         // needs to update wordle and return two wordle things
 //           add(new Wordle(song1, song2))
-
 
     }
 
