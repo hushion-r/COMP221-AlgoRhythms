@@ -31,7 +31,7 @@ public class DisplayWordle extends JFrame {
         this.pack();
         this.setVisible(true);
 
-        CreateWordle wordle = new CreateWordle(this);
+        CreateWordle wordle = new CreateWordle();
         wordle.run(Group.allGroups);
     }
 
@@ -45,10 +45,12 @@ public class DisplayWordle extends JFrame {
     public void createBanner(){
         JPanel bothGroups = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         bothGroups.setBackground(Color.WHITE);
-        bothGroups.setSize(850, 20);
+        bothGroups.setSize(1000, 10);
 
         JPanel firstGroup = new JPanel();
         JLabel firstName = new JLabel(default1.groupName);
+        firstGroup.setSize(300, 10);
+        firstGroup.setBackground(Color.WHITE);
         firstGroup.add(firstName);
         //Song list for the first group
         JList songList1 = new JList(default1.getSongNames());
@@ -57,6 +59,9 @@ public class DisplayWordle extends JFrame {
 
         //Repeat for second group
         JPanel secondGroup = new JPanel();
+        secondGroup.setBackground(Color.white);
+        secondGroup.setSize(300, 10);
+        
         JLabel secondName = new JLabel(default2.groupName);
         secondGroup.add(secondName);
         //list of songs for second group
@@ -68,7 +73,7 @@ public class DisplayWordle extends JFrame {
         compare.addActionListener(e -> {
            Song song1 = (Song) songList1.getSelectedValue();
            Song song2 = (Song)songList2.getSelectedValue();
-           //updateupdateWordleShow(song1, song2);
+
        });
         bothGroups.add(compare);
         add(bothGroups);
