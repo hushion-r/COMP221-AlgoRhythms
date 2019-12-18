@@ -24,7 +24,6 @@ public class Wordle extends GraphicsGroup {
 
 
         int maxIndex = Math.min(members.size(), MAX_WORDS - 1);
-        System.out.println(members.size());
         labels = new WordleGLabel[maxIndex];
 
         int i = 0;

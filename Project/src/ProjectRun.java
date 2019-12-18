@@ -5,7 +5,8 @@ public class ProjectRun {
     public static void main(String args [])  {
         processFile("Soup.txt");
         RunWordle wordle = new RunWordle();
-        wordle.run(Group.sampleGroups.get("BTS").members, Group.sampleGroups.get("BTS").allSongs.get(0));
+        wordle.run(Group.sampleGroups);
+//        wordle.run(Group.sampleGroups.get("BTS").members, Group.sampleGroups.get("BTS").allSongs.get(0));
     }
 
     static void processFile(String txt){
@@ -15,18 +16,23 @@ public class ProjectRun {
     static void processFile(InputStream in) {
 
         Scanner scan = new Scanner(in).useDelimiter(";");
-        String currLine = scan.next();
+        String currLine = scan.next().trim();
         while(scan.hasNext()) {
             Scanner sc = new Scanner(currLine).useDelimiter(",");
             Group currGroup;
             boolean init = false;
 
             String groupName = sc.next();                                 //Make new group if we haven't encountered them
+//            groupName = groupName.trim();
             if (!Group.sampleGroups.containsKey(groupName)) {
                 init = true;
                 currGroup = Group.addGroup(groupName);
-            } else {
+                System.out.println(groupName.trim());
+            }
+            else {
                 currGroup = Group.sampleGroups.get(groupName);              //else get the group object from someplace else
+                System.out.println(groupName.trim());
+
             }
 
             Song currSong = new Song(sc.next(), currGroup);//makes new song object
