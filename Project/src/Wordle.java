@@ -35,20 +35,8 @@ public class Wordle extends GraphicsGroup {
             }
             if (i<members.size()-1) i++;
         }
-
-//        int j = 0;
-//        for (Song s : songs) {
-//            for (Map.Entry<String, Member> entry : members.entrySet()) {
-//                labels[i] = new WordleGLabel(entry.getValue(), s, highScore, lowScore);
-//                if (entry.getValue().position.equals("rapper")) {
-//                    labels[i].setStrokeColor(colorR);
-//                } else if (entry.getValue().position.equals("vocalist")) {
-//                    labels[i].setStrokeColor(colorV);
-//                }
-//                if (i<members.size()-1) j++;
-//            }
-//        }
     }
+
 
     /**
      * Positions each WordleGLabel according to the wordle algorithm.
@@ -56,7 +44,6 @@ public class Wordle extends GraphicsGroup {
     public void doLayout() {
         Point.Double center = new Point2D.Double(0.0, 0.0);
         for(int i=0; i < labels.length; i++){
-            //TODO: Get an initial position for the current label and add it to the GCanvas at that position
             Point2D.Double initialPosition = makeInitialPosition(center);
             double xPos = initialPosition.x;
             double yPos = initialPosition.y;
@@ -65,7 +52,6 @@ public class Wordle extends GraphicsGroup {
             final double DELTA_ANGLE = Math.random() < 0.5 ? 1 : -1;
             double angle = DELTA_ANGLE;
 
-            //TODO: while the current label intersects other label update its position and increment angle
             while (checkIntersections(labels[i])) {
                 updatePosition(labels[i],initialPosition,angle);
                 angle = angle + .25;
@@ -73,7 +59,7 @@ public class Wordle extends GraphicsGroup {
 
             add(labels[i]);
 
-            pause(100); // You could uncomment this line if you want to slow down the placing so that it is easier to see what is going on.
+            pause(100);
         }
     }
 

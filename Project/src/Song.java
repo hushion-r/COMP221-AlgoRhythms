@@ -25,8 +25,8 @@ public class Song {
             this.memberTimes.get(member).add((int) percentage);
             // set percentage in Song object
 
+            System.out.println(member.memberName);
             member.setSongPercent(this, (int) percentage);
-//            member.songTimes.get(this).add((int) percentage);
             // set percentage in Member object
         }
     }
