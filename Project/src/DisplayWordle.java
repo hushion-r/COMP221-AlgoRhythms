@@ -37,7 +37,7 @@ public class DisplayWordle extends JFrame {
 
 
         JPanel firstGroup = new JPanel();
-        JLabel firstName = new JLabel(default1.getGroupName());
+        JLabel firstName = new JLabel(default1.groupName);
 
         firstGroup.add(firstName);
         //Song list for the first group
@@ -46,15 +46,20 @@ public class DisplayWordle extends JFrame {
         bothGroups.add(firstGroup);
 
         JPanel secondGroup = new JPanel();
-        JLabel secondName = new JLabel(default2.getGroupName());
+        JLabel secondName = new JLabel(default2.groupName);
         secondGroup.add(secondName);
         //list of songs for second group
         JList songList2 = new JList(default2.allSongs.toArray());
         secondGroup.add(songList2);
         bothGroups.add(secondGroup);
 
+//        JButton compare = new JButton("Compare");
+//        compare.addActionListener(e -> );
+
         add(bothGroups);
     }
+
+
 
 //    public void updateGroup(Group grp){
 //       // BoxLayout group1Box = new BoxLayout(this, width);
