@@ -9,20 +9,20 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
 /**
- * Created by bjackson on 10/12/2015.
+ * Originally created by bjackson on 10/12/2015.
  */
 public class WordleGLabel extends GraphicsText {
 
     public static final int SMALLEST_FONT_SIZE = 20;
     public static final int BIGGEST_FONT_SIZE = 120;
 
-    private Member member = null;
-    private Shape wordShape = null;
-
+    private Member member;
+    private Shape wordShape;
 
     /**
      * Construct a WordleGLable
      * @param member
+     * @param song
      * @param highScore largest possible score
      * @param lowScore smallest possible score
      */
@@ -52,10 +52,6 @@ public class WordleGLabel extends GraphicsText {
         g.dispose();
     }
 
-    /**
-     * Get shape
-     * @return
-     */
     public Shape getShape() {
         return wordShape;
     }
@@ -72,8 +68,6 @@ public class WordleGLabel extends GraphicsText {
 
     /**
      * Override of the move method so we can also update the shape
-     * @param dx
-     * @param dy
      */
     @Override
     public void move(double dx, double dy){
@@ -83,8 +77,6 @@ public class WordleGLabel extends GraphicsText {
 
     /**
      * Override of the setLocation method so we can also update the shape.
-     * @param x
-     * @param y
      */
     @Override
     public void setPosition(double x, double y){

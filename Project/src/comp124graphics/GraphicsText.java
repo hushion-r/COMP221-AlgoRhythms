@@ -33,7 +33,7 @@ public class GraphicsText extends GraphicsObject implements Colorable {
         this.y = y;
         this.text = text;
         textColor = Color.BLACK;
-        font = new Font("SanSerif", Font.PLAIN, 14);
+        font = new Font("Verdana", Font.ITALIC, 20);
     }
 
     /**
@@ -160,7 +160,7 @@ public class GraphicsText extends GraphicsObject implements Colorable {
         if (textShape == null){
             return false;
         }
-        int devScale = (int)((SunGraphics2D)gc).getSurfaceData().getDefaultScaleX();
+        int devScale = (int)((SunGraphics2D)gc).getSurfaceData().getDefaultScale();
         AffineTransform transform = new AffineTransform();
         transform.setToScale(devScale, devScale);
         Point.Double point = new Point2D.Double(x, y);

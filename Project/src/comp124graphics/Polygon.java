@@ -240,7 +240,7 @@ public class Polygon extends GraphicsObject implements Colorable, FillColorable 
      * @return true if this shape is the topmost object at point (x, y)
      */
     public boolean testHit(double x, double y, Graphics2D gc){
-        int devScale = (int)((SunGraphics2D)gc).getSurfaceData().getDefaultScaleX();
+        int devScale = (int)((SunGraphics2D)gc).getSurfaceData().getDefaultScale();
         AffineTransform transform = new AffineTransform();
         transform.setToScale(devScale, devScale);
         Point.Double point = new Point2D.Double(x, y);

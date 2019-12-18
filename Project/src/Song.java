@@ -2,14 +2,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Song {
-    Group group;     // stores Member objects, which store memberName, position, songs and times
-    String songName;
-    Integer totalTimeDist;  // sum of line distributions
-    HashMap<Member, ArrayList<Integer>> memberTimes = new HashMap<>();    // Member: [seconds, percentage]
+    public Group group;
+    public String songName;
+    public Integer totalTimeDist;  // Sum of line distributions
+    public HashMap<Member, ArrayList<Integer>> memberTimes = new HashMap<>();    // Member: [seconds, percentage]
 
-    public Song(String song, Group gp){
-        songName = song;
-        group = gp;
+    public Song(String songName, Group group){
+        this.songName = songName;
+        this.group = group;
         totalTimeDist = 0;
     }
 
@@ -22,13 +22,15 @@ public class Song {
         for (Member member : this.memberTimes.keySet()) {
             percentage = ((double) this.memberTimes.get(member).get(0) / totalTimeDist) * 100.0;
 
-            this.memberTimes.get(member).add((int) percentage);
-            // set percentage in Song object
+            this.memberTimes.get(member).add((int) percentage); // set percentage in Song object
 
-            System.out.print(member);
-            member.setSongPercent(this, (int) percentage);
-            // set percentage in Member object
+            member.setSongPercent(this, (int) percentage); // set percentage in Member object
         }
+    }
+
+    @Override
+    public String toString(){
+        return this.songName;
     }
 
 }

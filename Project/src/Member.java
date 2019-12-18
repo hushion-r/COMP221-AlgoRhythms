@@ -9,14 +9,6 @@ public class Member {
         memberName = nme;
     }
 
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
     public Integer getSongPercent(Song song) {
         return songTimes.get(song).get(1);
     }

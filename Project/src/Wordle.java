@@ -1,7 +1,6 @@
 import comp124graphics.GraphicsGroup;
 import comp124graphics.GraphicsText;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.*;
@@ -11,20 +10,22 @@ import java.util.*;
  */
 public class Wordle extends GraphicsGroup {
 
-    public static final int MAX_WORDS = 30;
+    public static final int MAX_MEM = 13;   // Largest active k-pop group has 13 members
     private WordleGLabel[] labels;
     private Random rgen;
     private double highScore = 100.0;
     private double lowScore = 1.0;
     public Song song;
 
-    // go through songs in one group
+    /**
+     * Creates WordleGLabel objects for each member. Assigns color based on member's position.
+     */
     public Wordle(Group group, Song song, double x, double y) {
         super(x,y);
         this.song = song;
         rgen = new Random();
 
-        int maxIndex = Math.min(group.members.size(), MAX_WORDS - 1);
+        int maxIndex = Math.min(group.members.size(), MAX_MEM - 1);
         labels = new WordleGLabel[maxIndex];
 
         int i = 0;
@@ -39,6 +40,9 @@ public class Wordle extends GraphicsGroup {
         }
     }
 
+    /**
+     * Iterates over members to create new WordleGLabels.
+     */
     public void updateWordle2(Song song) {
         this.song = song;
         int i = 0;
@@ -75,10 +79,10 @@ public class Wordle extends GraphicsGroup {
             }
 
             add(labels[i]);
-
-            pause(100);
         }
-        GraphicsText gText = new GraphicsText(song.songName, (float) 0.0, (float) 550.0);
+        String label = song.group.groupName + " - " + song.songName;
+        GraphicsText gText = new GraphicsText(label, (float) 0.0, (float) 550.0);
+        gText.setFont(new Font("Verdana", Font.ITALIC, 40));
         add(gText);
     }
 
@@ -112,7 +116,7 @@ public class Wordle extends GraphicsGroup {
      * @param label
      * @return true if an intersection is found.
      */
-    private boolean checkIntersections(WordleGLabel label){
+    private boolean checkIntersections(WordleGLabel label) {
         Iterator it = this.iterator();
         while(it.hasNext()){
             Object obj = it.next();
@@ -124,18 +128,5 @@ public class Wordle extends GraphicsGroup {
             }
         }
         return false;
-    }
-
-    /**
-     * Pauses the program for milliseconds
-     * @param milliseconds
-     */
-    public void pause(long milliseconds){
-        try{
-            Thread.sleep(milliseconds);
-        }
-        catch(InterruptedException e) {
-            // Empty
-        }
     }
 }
