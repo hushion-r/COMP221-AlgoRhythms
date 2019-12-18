@@ -5,6 +5,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * Created by bjackson.
@@ -19,16 +20,12 @@ public class RunWordle {
         canvas = new CanvasWindow("Wordle", 1600, 800);
     }
 
-    public void run(HashMap<String, Member> members, Song song) {
-
-        Wordle wordle = new Wordle(members, song, Color.RED, Color.GREEN, canvas.getWidth() / 2.0, canvas.getHeight() / 2.0);
-//        Wordle wordle = new Wordle(members, songsToCompare[0], Color.RED, Color.GREEN, canvas.getWidth() / 2.0, canvas.getHeight() / 2.0);
-        canvas.add(wordle);
-        wordle.doLayout();
-
-//        for(Group currGroup: Group.sampleGroups.values()){
-//            Wordle wordle = new Wordle(currGroup, songsToCompare[0], Color.RED, Color.GREEN, canvas.getWidth() / 2.0, canvas.getHeight() / 2.0);
-//        }
-
+    public void run(HashMap<String, Group> groups) {
+        for (Group currGroup : groups.values()) {
+//            System.out.print(currGroup.groupName);
+            Wordle wordle = new Wordle(currGroup.members, currGroup.allSongs.get(0), Color.RED, Color.GREEN, canvas.getWidth() / 2.0, canvas.getHeight() / 2.0);
+            canvas.add(wordle);
+            wordle.doLayout();
+        }
     }
 }

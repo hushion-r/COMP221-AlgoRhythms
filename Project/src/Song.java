@@ -19,12 +19,8 @@ public class Song {
 
     public void assignPercentages() {
         double percentage;
-        System.out.println(this.memberTimes.entrySet());
         for (Member member : this.memberTimes.keySet()) {
             percentage = ((double) this.memberTimes.get(member).get(0) / totalTimeDist) * 100.0;
-            System.out.println(this.memberTimes.get(member).get(0));
-
-
 
             this.memberTimes.get(member).add((int) percentage);
             // set percentage in Song object
