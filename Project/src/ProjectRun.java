@@ -17,33 +17,37 @@ public class ProjectRun {
 
         Scanner scan = new Scanner(in).useDelimiter(";");
         String currLine = scan.next().trim();
-        while(scan.hasNext()) {
-            Scanner sc = new Scanner(currLine).useDelimiter(",");
+        currLine = currLine.replaceAll("\r\n", "");
+        System.out.println(currLine);
+        while(scan.hasNext() && !currLine.equals("\r\n.")) {
+            Scanner sc = new Scanner(currLine).useDelimiter(", ");
             Group currGroup;
             boolean init = false;
 
             String groupName = sc.next();                                 //Make new group if we haven't encountered them
-//            groupName = groupName.trim();
             if (!Group.sampleGroups.containsKey(groupName)) {
                 init = true;
                 currGroup = Group.addGroup(groupName);
-                System.out.println(groupName.trim());
+                System.out.println("yes");
             }
             else {
                 currGroup = Group.sampleGroups.get(groupName);              //else get the group object from someplace else
-                System.out.println(groupName.trim());
+                System.out.println("no");
 
             }
 
-            Song currSong = new Song(sc.next(), currGroup);//makes new song object
+            Song currSong = new Song(sc.next().trim(), currGroup);//makes new song object
             currGroup.allSongs.add(currSong);
             while (sc.hasNext()) {
-                currGroup.addTimes(currSong, sc.next(), init);
+                currGroup.addTimes(currSong, sc.next().trim(), init);
             }
             currSong.assignPercentages();
             sc.close();
             currLine = scan.next();
+
+            System.out.println(currSong.songName);
         }
         scan.close();
+        System.out.println("help");
     }
 }

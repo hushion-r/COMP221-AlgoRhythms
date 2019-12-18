@@ -22,10 +22,16 @@ public class RunWordle {
 
     public void run(HashMap<String, Group> groups) {
         for (Group currGroup : groups.values()) {
-//            System.out.print(currGroup.groupName);
             Wordle wordle = new Wordle(currGroup.members, currGroup.allSongs.get(0), Color.RED, Color.GREEN, canvas.getWidth() / 2.0, canvas.getHeight() / 2.0);
             canvas.add(wordle);
             wordle.doLayout();
+
+            wordle.pause(200);
+            wordle.removeAll();
         }
+
+//        Wordle wordle = new Wordle(groups.get("BTS").members, groups.get("BTS").allSongs.get(1), Color.RED, Color.GREEN, canvas.getWidth() / 2.0, canvas.getHeight() / 2.0);
+//        canvas.add(wordle);
+//        wordle.doLayout();
     }
 }
