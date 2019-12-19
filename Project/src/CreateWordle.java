@@ -86,12 +86,16 @@ public class CreateWordle {
         String legend = "Legend:";
         GraphicsText legendGText = new GraphicsText(legend, (float) 800.0, (float) 100.0);
         canvas.add(legendGText);
-        legend = "Rapper - RED";
+        legend = "Dancer - BLUE";
         legendGText =  new GraphicsText(legend, (float) 800.0, (float) 130.0);
+        legendGText.setStrokeColor(Color.BLUE);
+        canvas.add(legendGText);
+        legend = "Rapper - RED";
+        legendGText =  new GraphicsText(legend, (float) 800.0, (float) 160.0);
         legendGText.setStrokeColor(Color.RED);
         canvas.add(legendGText);
         legend = "Vocalist - GREEN";
-        legendGText =  new GraphicsText(legend, (float) 800.0, (float) 160.0);
+        legendGText =  new GraphicsText(legend, (float) 800.0, (float) 190.0);
         legendGText.setStrokeColor(Color.GREEN);
         canvas.add(legendGText);
     }

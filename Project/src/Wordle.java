@@ -31,7 +31,9 @@ public class Wordle extends GraphicsGroup {
         int i = 0;
         for (Member mem : group.members.values()) {
             labels[i] = new WordleGLabel(mem, song, highScore, lowScore);
-            if (mem.position.equals("rapper")) {
+            if (mem.position.equals("dancer")) {
+                labels[i].setStrokeColor(Color.BLUE);
+            } else if (mem.position.equals("rapper")) {
                 labels[i].setStrokeColor(Color.RED);
             } else if (mem.position.equals("vocalist")) {
                 labels[i].setStrokeColor(Color.GREEN);
@@ -48,7 +50,9 @@ public class Wordle extends GraphicsGroup {
         int i = 0;
         for (Member mem : song.group.members.values()) {
             labels[i] = new WordleGLabel(mem, song, highScore, lowScore);
-            if (mem.position.equals("rapper")) {
+            if (mem.position.equals("dancer")) {
+                labels[i].setStrokeColor(Color.BLUE);
+            } else if (mem.position.equals("rapper")) {
                 labels[i].setStrokeColor(Color.RED);
             } else if (mem.position.equals("vocalist")) {
                 labels[i].setStrokeColor(Color.GREEN);
